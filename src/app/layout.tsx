@@ -1,11 +1,11 @@
 import { Inter } from "next/font/google";
-// import {
-  // ClerkProvider,
+import {
+  ClerkProvider,
   // SignedIn,
   // SignedOut,
   // SignInButton,
   // UserButton,
-// } from "@clerk/nextjs";
+} from "@clerk/nextjs";
 // import FloatingDockWrapper from "./FloatingDockWrapper";
 import type { Metadata } from "next";
 import "./globals.css";
@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    // <ClerkProvider dynamic>
+    <ClerkProvider dynamic>
       <html lang="en">
         <body
           className={`${inter.className}`}
@@ -48,6 +48,6 @@ export default function RootLayout({
           {/* </ProtectedContent> */}
         </body>
       </html>
-    // </ClerkProvider>
+    </ClerkProvider>
   );
 }

@@ -30,7 +30,7 @@ export default function Home() {
 
               <div className="relative z-10 text-center text-white !important space-y-6 max-w-4xl mx-auto px-4">
                 <h1 className="text-4xl md:text-6xl font-bold">
-                  Objection Overruled: Fuck You
+                  Objection Overruled:
                   <br />
                   <span className="inline">
                     Your <FlipWords words={words} className="text-white" />
