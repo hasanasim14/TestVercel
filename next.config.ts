@@ -30,7 +30,7 @@ const nextConfig: NextConfig = {
           has: [
             {
               type: 'host',
-              value: 'test-lawyer.futr.agency',
+              value: 'lawyer.addfutr.com',
             },
           ],
           destination: '/adli-landing',
