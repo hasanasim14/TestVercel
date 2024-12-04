@@ -1,7 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   images: {
     domains: ["assets.aceternity.com"],
   },
@@ -17,23 +16,23 @@ const nextConfig: NextConfig = {
           },
         ],
       },
-    ]
+    ];
   },
   async redirects() {
-    return []  
+    return [];  
   },
   async rewrites() {
     return {
       beforeFiles: [
         {
-          source: '/',
+          source: '/:path*',
           has: [
             {
               type: 'host',
               value: 'lawyer.addfutr.com',
             },
           ],
-          destination: '/adli-landing',
+          destination: '/adli-landing/:path*',
         },
         {
           source: '/:path*',
@@ -75,10 +74,20 @@ const nextConfig: NextConfig = {
           ],
           destination: '/mitchell-landing/:path*',
         },
+        {
+          source: '/:path*',
+          has: [
+            {
+              type: 'host',
+              value: 'torani.addfutrdata.com',
+            },
+          ],
+          destination: '/torani-landing/:path*',
+        },
       ],
       afterFiles: [], // Required by type definition
       fallback: [],   // Required by type definition
-    }
+    };
   },
 };
 
