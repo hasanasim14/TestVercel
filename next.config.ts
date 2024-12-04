@@ -82,7 +82,7 @@ const nextConfig: NextConfig = {
               value: 'torani.addfutrdata.com',
             },
           ],
-          destination: '/torani-landing/:path*',
+          destination: '/mitchell-landing/:path*',
         },
       ],
       afterFiles: [], // Required by type definition
