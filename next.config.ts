@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["assets.aceternity.com"],
+    domains: ["assets.aceternity.com"], // Add any other domains for images if needed
   },
   transpilePackages: ['@calcom/embed-react'],
   async headers() {
@@ -19,7 +19,7 @@ const nextConfig: NextConfig = {
     ];
   },
   async redirects() {
-    return [];  
+    return [];
   },
   async rewrites() {
     return {
@@ -29,37 +29,7 @@ const nextConfig: NextConfig = {
           has: [
             {
               type: 'host',
-              value: 'lawyer.addfutr.com',
-            },
-          ],
-          destination: '/adli-landing/:path*',
-        },
-        {
-          source: '/:path*',
-          has: [
-            {
-              type: 'host',
-              value: 'test-lawyer.futr.agency',
-            },
-          ],
-          destination: '/adli-landing/:path*',
-        },
-        {
-          source: '/:path*',
-          has: [
-            {
-              type: 'host',
-              value: 'book.adli.com',
-            },
-          ],
-          destination: '/adli-landing/:path*',
-        },
-        {
-          source: '/:path*',
-          has: [
-            {
-              type: 'host',
-              value: 'book.toranilaw.com',
+              value: 'torani.addfutrdata.com',
             },
           ],
           destination: '/torani-landing/:path*',
@@ -69,20 +39,10 @@ const nextConfig: NextConfig = {
           has: [
             {
               type: 'host',
-              value: 'book.mitchlawfirm.com',
+              value: 'book.adli.com', // This domain can be used for Adli Landing
             },
           ],
-          destination: '/mitchell-landing/:path*',
-        },
-        {
-          source: '/:path*',
-          has: [
-            {
-              type: 'host',
-              value: 'torani.addfutrdata.com',
-            },
-          ],
-          destination: '/mitchell-landing/:path*',
+          destination: '/adli-landing/:path*',
         },
       ],
       afterFiles: [], // Required by type definition
