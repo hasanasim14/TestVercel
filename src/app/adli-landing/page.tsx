@@ -5,7 +5,7 @@ import React from "react";
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation"; // Use useSearchParams for URL parameters
 // import { Button } from "../../components/ui/button";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/button";
 import {
   Dialog,
   DialogContent,
