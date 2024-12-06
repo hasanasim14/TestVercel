@@ -8,7 +8,7 @@ import {
 } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import './globals.css';
-
+import '../styles/globals.css'
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
