@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["assets.aceternity.com"], // Add any other domains for images if needed
+    domains: ["assets.aceternity.com"],
   },
   transpilePackages: ["@calcom/embed-react"],
   async headers() {
@@ -55,8 +55,8 @@ const nextConfig: NextConfig = {
           destination: '/mitchell-landing/:path*',
         },
       ],
-      afterFiles: [], // Required by type definition
-      fallback: [], // Required by type definition
+      afterFiles: [],
+      fallback: [],
     };
   },
 };
