@@ -29,10 +29,10 @@ const nextConfig: NextConfig = {
           has: [
             {
               type: 'host',
-              value: 'torani.addfutrdata.com',
+              value: 'lawyer.addfutr.com',
             },
           ],
-          destination: '/torani-landing/:path*',
+          destination: '/mitchell-landing/:path*',
         },
         {
           source: '/:path*',
