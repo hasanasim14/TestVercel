@@ -7,8 +7,8 @@ import {
   // UserButton,
 } from "@clerk/nextjs";
 import type { Metadata } from "next";
-import './globals.css';
-import '../styles/globals.css'
+import "./globals.css";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -23,9 +23,9 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider dynamic>
-      <html lang="en" className='dark'>
+      <html lang="en">
         <body
-          className={`${inter.className} dark ` }
+          className={`${inter.className}`}
           // style={{ backgroundColor: "#171717" }}
         >
           {/* <header className="flex justify-between items-center p-4"> */}
