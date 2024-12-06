@@ -17,22 +17,24 @@ export default function Home() {
   const router = useRouter();
 
 
+//commenting
 
-  
-  useEffect(() => {
-    // Check if we're in the browser
-    if (typeof window !== 'undefined') {
-      const hostname = window.location.hostname;
-      if (hostname === 'lawyer.addfutr.com') {
-        router.push('/adli-landing');
-        return;
-      }
-    }
-  }, [router]);
+  // useEffect(() => {
+  //   if (typeof window !== 'undefined') {
+  //     const hostname = window.location.hostname;
+  //     if (hostname === 'lawyer.addfutr.com') {
+  //       router.push('/adli-landing');
+  //       return;
+  //     }
+  //   }
+  // }, [router]);
 
   return (
     <>
-      <ClerkProvider>
+    <div className='!bg-black'>
+      test
+    </div>
+      {/* <ClerkProvider>
         <div className="flex flex-col min-h-screen">
           <main className="flex-grow">
             <section className="relative h-[70vh] flex items-center justify-center">
@@ -139,7 +141,7 @@ export default function Home() {
             </div>
           </footer>
         </div>
-      </ClerkProvider>
+      </ClerkProvider> */}
     </>
   );
 }
