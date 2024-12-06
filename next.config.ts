@@ -49,7 +49,7 @@ const nextConfig: NextConfig = {
           has: [
             {
               type: 'host',
-              value: 'lawyer.futr.agency',
+              value: 'lawyer.addfutr.com',
             },
           ],
           destination: '/mitchell-landing/:path*',
