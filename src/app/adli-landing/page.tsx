@@ -1,9 +1,11 @@
 "use client";
 
+import '../globals.css'
 import React from "react";
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation"; // Use useSearchParams for URL parameters
-import { Button } from "../../components/ui/button";
+// import { Button } from "../../components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -11,11 +13,12 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "../../components/ui/dialog";
+} from "@/components/ui/dialog";
 import { MapPin, Mail, Phone, Printer } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import DualTimeline from "../../components/DualTimeline";
+// import DualTimeline from "../../components/DualTimeline";
+import DualTimeline from "@/components/DualTimeline";
 
 export default function Component() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
