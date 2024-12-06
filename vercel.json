@@ -1,44 +1,5 @@
 {
   "rewrites": [
-    {
-      "source": "/:path*",
-      "destination": "/adli-landing/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "lawyer.addfutr.com"
-        }
-      ]
-    },
-    {
-      "source": "/:path*",
-      "destination": "/adli-landing/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "book.adli.com"
-        }
-      ]
-    },
-    {
-      "source": "/:path*",
-      "destination": "/torani-landing/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "book.toranilaw.com"
-        }
-      ]
-    },
-    {
-      "source": "/:path*",
-      "destination": "/mitchell-landing/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "book.mitchlawfirm.com"
-        }
-      ]
-    }
+   
   ]
 }
