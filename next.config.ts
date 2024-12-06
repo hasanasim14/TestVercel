@@ -33,7 +33,7 @@ const nextConfig: NextConfig = {
               value: 'lawyer.addfutr.com',
             },
           ],
-          destination: '/adli-landing/:path*',
+          destination: '/mitchell-landing/:path*',
         },
         {
           source: '/:path*',
