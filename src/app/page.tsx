@@ -16,6 +16,9 @@ export default function Home() {
   const { isSignedIn } = useUser();
   const router = useRouter();
 
+
+
+  
   useEffect(() => {
     // Check if we're in the browser
     if (typeof window !== 'undefined') {
