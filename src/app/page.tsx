@@ -1,5 +1,6 @@
 "use client";
 
+import '../app/globals.css'
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { FlipWords } from "@/components/ui/flip-words";
@@ -7,10 +8,24 @@ import { Briefcase, Users, BarChart, Shield } from "lucide-react";
 import { ClerkProvider, useUser } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const words = ["Clients", "Partners", "Customers", "Referrals"];
   const { isSignedIn } = useUser();
+  const router = useRouter();
+
+  useEffect(() => {
+    // Check if we're in the browser
+    if (typeof window !== 'undefined') {
+      const hostname = window.location.hostname;
+      if (hostname === 'lawyer.addfutr.com') {
+        router.push('/adli-landing');
+        return;
+      }
+    }
+  }, [router]);
 
   return (
     <>

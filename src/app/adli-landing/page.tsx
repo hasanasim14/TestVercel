@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation"; // Use useSearchParams for URL parameters
 import { Button } from "../../components/ui/button";
@@ -14,7 +15,7 @@ import {
 import { MapPin, Mail, Phone, Printer } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import LitigationTimeline from "../../components/StateTimeline";
+import DualTimeline from "../../components/DualTimeline";
 
 export default function Component() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -192,6 +193,7 @@ function SuspenseContent({
           </div>
         </section>
 
+        {/* About us */}
         <section className="w-full py-12 md:py-24 lg:py-32 bg-[#032840]">
           <div className="container px-4 md:px-6">
             <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3">
@@ -272,20 +274,20 @@ function SuspenseContent({
           </div>
         </section>
 
+        {/* TImelines */}
         <section className="w-full py-12 md:py-24 lg:py-32 bg-[#F5F5F5]">
-          <div className="container px-4 md:px-6">
-            <div className="text-center mb-10">
-              <h2 className="text-3xl font-bold text-[#8A7D63] mb-2">
-                California Civil Litigation Timeline
-              </h2>
-              <p className="text-xl text-[#9C8D7C]">
-                (Getting to trial may take 1-2 years or longer)
-              </p>
-            </div>
-            <LitigationTimeline timelineiconcolor="#8A7D63" textcolor="black" />
-          </div>
+          <h2 className="text-3xl font-bold text-black mb-2 text-center">
+            Litigation Timelines
+          </h2>
+          <DualTimeline
+            federalIconColor="#8A7D63"
+            federalTextColor="black"
+            stateIconColor="#8A7D63"
+            stateTextColor="black"
+          />
         </section>
 
+        {/* Contact us */}
         <section className="w-full py-8 md:py-16 lg:py-20 bg-[#D9DFDB]">
           <div className="container px-4 md:px-5">
             <h2 className="text-2xl font-bold tracking-tighter text-center mb-6 text-[#032840]">
@@ -321,6 +323,7 @@ function SuspenseContent({
         </section>
       </main>
 
+      {/* Footer */}
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t-2 border-[#8A7D63]">
         <p className="text-xs text-[#032840]">
           © 2024 Adli. All rights reserved.

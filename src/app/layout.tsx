@@ -6,7 +6,6 @@ import {
   // SignInButton,
   // UserButton,
 } from "@clerk/nextjs";
-// import FloatingDockWrapper from "./FloatingDockWrapper";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -30,7 +29,6 @@ export default function RootLayout({
           // style={{ backgroundColor: "#171717" }}
         >
           {/* <header className="flex justify-between items-center p-4"> */}
-          {/* Sign in header, take the time out to fix this, no judgar */}
           {/* <div>
               <SignedOut>
                 <SignInButton />
@@ -42,10 +40,7 @@ export default function RootLayout({
               </SignedIn>
             </div> */}
           {/* </header> */}
-          {/* <ProtectedContent> */}
           <main className="flex-1 overflow-auto main-content">{children}</main>
-          {/* <FloatingDockWrapper /> */}
-          {/* </ProtectedContent> */}
         </body>
       </html>
     </ClerkProvider>

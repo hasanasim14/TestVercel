@@ -1,25 +1,26 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  /* config options here */
   images: {
     domains: ["assets.aceternity.com"],
   },
-  transpilePackages: ["@calcom/embed-react"],
+  transpilePackages: ['@calcom/embed-react'],
   async headers() {
     return [
       {
-        source: "/:path*",
+        source: '/:path*',
         headers: [
           {
-            key: "Access-Control-Allow-Origin",
-            value: "*",
+            key: 'Access-Control-Allow-Origin',
+            value: '*',
           },
         ],
       },
     ];
   },
   async redirects() {
-    return [];
+    return [];  
   },
   async rewrites() {
     return {
@@ -29,7 +30,7 @@ const nextConfig: NextConfig = {
           has: [
             {
               type: 'host',
-              value: 'book.adli.com',
+              value: 'lawyer.addfutr.com',
             },
           ],
           destination: '/adli-landing/:path*',
@@ -49,14 +50,14 @@ const nextConfig: NextConfig = {
           has: [
             {
               type: 'host',
-              value: 'lawyer.addfutr.com',
+              value: 'book.mitchlawfirm.com',
             },
           ],
           destination: '/mitchell-landing/:path*',
         },
       ],
-      afterFiles: [],
-      fallback: [],
+      afterFiles: [], // Required by type definition
+      fallback: [],   // Required by type definition
     };
   },
 };

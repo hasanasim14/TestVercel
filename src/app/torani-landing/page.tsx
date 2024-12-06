@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { Button } from "../../components/ui/button";
 import {
@@ -14,7 +14,7 @@ import {
 import { MapPin, Phone, Clock } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import LitigationTimeline from "../../components/StateTimeline";
+import DualTimeline from "../../components/DualTimeline";
 
 export default function Component() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -193,6 +193,7 @@ function SuspenseContent({
           </div>
         </section>
 
+        {/* Services */}
         <section className="w-full py-12 md:py-24 lg:py-32 bg-[#6e9489]">
           <div className="container px-4 md:px-6">
             <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3">
@@ -282,20 +283,20 @@ function SuspenseContent({
           </div>
         </section>
 
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-[#f8]">
-          <div className="container px-4 md:px-6">
-            <div className="text-center mb-10">
-              <h2 className="text-3xl font-bold text-[#6e9489] mb-2">
-                California Civil Litigation Timeline
-              </h2>
-              <p className="text-xl text-[#9C8D7C]">
-                (Getting to trial may take 1-2 years or longer)
-              </p>
-            </div>
-            <LitigationTimeline timelineiconcolor="#6e9489" textcolor="black" />
-          </div>
+        {/* Timelines */}
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-[#F5F5F5]">
+          <h2 className="text-3xl font-bold text-black mb-2 text-center">
+            Litigation Timelines
+          </h2>
+          <DualTimeline
+            federalIconColor="#6e9489"
+            federalTextColor="black"
+            stateIconColor="#6e9489"
+            stateTextColor="black"
+          />
         </section>
 
+        {/* Contact us */}
         <section className="w-full py-8 md:py-16 lg:py-20 bg-[#6e9489]">
           <div className="container mx-auto px-4 md:px-5">
             <h2 className="text-2xl font-bold tracking-tighter text-center mb-6 text-[#D9DFDB]">
@@ -305,19 +306,19 @@ function SuspenseContent({
               <div className="flex flex-col items-center space-y-2 p-4 rounded-lg w-full  ">
                 <MapPin className="h-10 w-10 text-[#dfdcc4]" />
                 <h3 className="text-lg font-bold text-[#D9DFDB]">Address</h3>
-                <p className="text-[#f8] text-center">
+                <p className="text-[#F8F8F8] text-center">
                   655 North Central Avenue 17th Floor
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-2 p-4 rounded-lg w-full  ">
                 <Phone className="h-10 w-10 text-[#dfdcc4]" />
                 <h3 className="text-lg font-bold text-[#D9DFDB]">Phone</h3>
-                <p className="text-[#f8] text-center">818-254-9555</p>
+                <p className="text-[#F8F8F8] text-center">818-254-9555</p>
               </div>
               <div className="flex flex-col items-center space-y-2 p-4 rounded-lg w-full  ">
                 <Clock className="h-10 w-10 text-[#dfdcc4]" />
                 <h3 className="text-lg font-bold text-[#D9DFDB]">Hours</h3>
-                <p className="text-[#f8] text-center">
+                <p className="text-[#F8F8F8] text-center">
                   Monday - Friday: 9am - 6pm
                 </p>
               </div>
@@ -326,6 +327,7 @@ function SuspenseContent({
         </section>
       </main>
 
+      {/* Footer */}
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t-2 border-[#6e9489]">
         <p className="text-xs text-[#032840]">
           © 2024 TORANI LAW. All rights reserved.

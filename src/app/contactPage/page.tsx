@@ -1,84 +1,158 @@
 "use client";
 
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import React, { useState, useEffect } from "react";
+import { Card, CardContent } from "@/components/ui/card";
 import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Mail } from "lucide-react";
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+// import LitigationTimeline from "@/components/StateTimeline";
+import FederalTimeline from "../../components/FederalTimeline";
+import LitigationTimeline from "@/components/StateTimeline";
 
-interface EmailTemplate {
-  htmlContent: string;
-}
+const TimelinesCarousel = () => {
+  const [isSticky, setIsSticky] = useState(false);
 
-export default function EmailTemplateViewer() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [emailTemplate, setEmailTemplate] = useState<EmailTemplate | null>(
-    null
-  );
+  const slides = [0, 1];
+  const SlideContentArray = [
+    () => (
+      <div className="w-full h-full overflow-y-auto">
+        <LitigationTimeline timelineiconcolor="#8A7D63" textcolor="black" />
+      </div>
+    ),
+    () => (
+      <div className="w-full h-full overflow-y-auto">
+        <FederalTimeline timelineiconcolor="#8A7D63" textcolor="black" />
+      </div>
+    ),
+  ];
 
-  const mockFetchTemplate = () => {
-    // Simulating API call to fetch the template
-    setTimeout(() => {
-      setEmailTemplate({
-        htmlContent: `
-          <p>«Full_Name»</p>
-          <p>«Business»</p>
-          <p>«Address_Line_1»</p>
-          <p>«City_State_ZIP»</p>
-          <p></p>
-          <p><a id="_Hlk11139177"></a></p>
-          <p>{{greeting}}</p>
-          <p><br />My name is Dr. Dariush Adli. I am an attorney and President of ADLI Law Group. In addition to a J.D. in Law, I have a science and engineering background, with a B.S. degree in Physics/Math and M.S. and Ph.D. degrees in Nuclear Engineering from the University of Michigan. We obtained this information from public records, according to which you, or someone with a similar name, is a party to this lawsuit. If you have an attorney or if this case does not concern you, please disregard this letter. If you do not wish to receive such communications from us in the future, please let us know.</p>
-          <p>ADLI Law was established in 2010 and is now proudly in its fifteenth year of serving its clients. We offer legal services in several areas of law, including Intellectual Property (Patent, Trademark and Copyright) Litigation and Acquisition, Business Litigation and Transaction, Labor &amp; Employment, Real Estate and Product Liability.</p>
-          <p>Since its founding, ADLI's focus has focused on recruiting top legal talent and providing first rate services to clients at a reasonable price combined with the personal attention they deserve. In that regard, our attorneys are credited with over 50 articles in prestigious legal publications. Our team of top attorneys ensures that you and your business are kept in the foreground.</p>
-          <p>If you need representation or would like a consultation to discuss your options, we are here to help. For a free consultation call (213) 623-6547 or email me at <a href="mailto:adli@adlilaw.com">adli@adlilaw.com</a>.</p>
-          <p></p>
-          <p>Please note that this letter is a solicitation and does not establish an attorney-client relationship between us.</p>
-          <p></p>
-          <table>
-            <tr>
-              <td><p>{{plaintiff}} v. {{defendant}} {{number}}</p></td>
-              <td><p>{{summary}}</p></td>
-              <td><p>«Full_Name»</p></td>
-            </tr>
-          </table>
-          <p><a id="Closing"></a>Sincerely,</p>
-          <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg==" alt="Signature" /></p>
-          <p><a id="FromFullName"></a>Dr. Dariush G. Adli, Ph.D; Esq.</p>
-        `,
-      });
-    }, 1000);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      const section = document.getElementById("timelines-section");
+
+      // Ensure section exists before accessing getBoundingClientRect
+      if (section) {
+        const sectionTop = section.getBoundingClientRect().top;
+        const sectionBottom = section.getBoundingClientRect().bottom;
+
+        // Check if the section is visible in the viewport
+        if (sectionTop <= 0 && sectionBottom >= 0) {
+          setIsSticky(true); // Make buttons sticky when section is in view
+        } else {
+          setIsSticky(false); // Hide buttons when section is out of view
+        }
+      }
+    };
+
+    // Attach the scroll event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogTrigger asChild>
-        <Button variant="outline" onClick={mockFetchTemplate}>
-          <Mail className="mr-2 h-4 w-4" />
-          View Email Template
-        </Button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[700px] sm:h-[80vh]">
-        <DialogHeader>
-          <DialogTitle>Email Template</DialogTitle>
-        </DialogHeader>
-        <ScrollArea className="h-full w-full rounded-md border p-4">
-          {emailTemplate ? (
-            <div
-              dangerouslySetInnerHTML={{ __html: emailTemplate.htmlContent }}
-              className="prose prose-sm max-w-none"
-            />
-          ) : (
-            <p>Loading email template...</p>
-          )}
-        </ScrollArea>
-      </DialogContent>
-    </Dialog>
+    <div>
+      {/* Add more sections here */}
+      <section className="w-full py-12 bg-[#F5F5F5]">
+        <div className="container px-4 md:px-6 mx-auto">
+          <h2 className="text-center mb-8 text-3xl">Section 1: Introduction</h2>
+          <p className="text-center">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+            at egestas eros.
+          </p>
+        </div>
+      </section>
+
+      {/* Timelines Section */}
+      <section
+        id="timelines-section"
+        className="w-full py-12 md:py-24 lg:py-32 bg-[#F5F5F5]"
+      >
+        <div className="container px-4 md:px-6 mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl mb-4">Timelines Section</h2>
+            <Carousel className="w-full max-w-4xl mx-auto">
+              {/* Adjust the height of the Carousel dynamically */}
+              <CarouselContent className="h-[110vh] sm:h-[120vh] md:h-[130vh] lg:h-[140vh]">
+                {slides.map((slideIndex) => (
+                  <CarouselItem key={slideIndex} className="h-full">
+                    <Card className="w-full h-[80vh] sm:h-[90vh] md:h-[100vh] lg:h-[110vh] overflow-auto">
+                      <CardContent className="p-6 h-full flex flex-col justify-between">
+                        {React.createElement(SlideContentArray[slideIndex], {
+                          timelineiconcolor: "#8A7D63",
+                          textcolor: "black",
+                        })}
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+
+              {/* Sticky Buttons */}
+              <div
+                className={`flex justify-center mt-4 ${
+                  isSticky
+                    ? "fixed bottom-10 z-10 left-1/2 transform -translate-x-1/2"
+                    : ""
+                }`}
+              >
+                <CarouselPrevious className="relative inset-auto translate-x-0 translate-y-0 bg-[#333] text-white hover:bg-[#555] border border-white rounded-full p-6 text-3xl shadow-lg hover:scale-110 transition-all mx-2" />
+                <CarouselNext className="relative inset-auto translate-x-0 translate-y-0 bg-[#333] text-white hover:bg-[#555] border border-white rounded-full p-6 text-3xl shadow-lg hover:scale-110 transition-all mx-2" />
+              </div>
+            </Carousel>
+          </div>
+        </div>
+      </section>
+
+      {/* Other Sections */}
+      <section className="w-full py-12 bg-[#F5F5F5]">
+        <div className="container px-4 md:px-6 mx-auto">
+          <h2 className="text-center mb-8 text-3xl">Section 2: Features</h2>
+          <p className="text-center">
+            Donec et erat vel nulla volutpat luctus. Mauris sit amet laoreet
+            purus.
+          </p>
+        </div>
+      </section>
+
+      <section className="w-full py-12 bg-[#F5F5F5]">
+        <div className="container px-4 md:px-6 mx-auto">
+          <h2 className="text-center mb-8 text-3xl">Section 3: Benefits</h2>
+          <p className="text-center">
+            Nam commodo orci ut nulla tincidunt, a aliquam sem tincidunt.
+            Vivamus vitae turpis ut libero sodales volutpat.
+          </p>
+        </div>
+      </section>
+
+      <section className="w-full py-12 bg-[#F5F5F5]">
+        <div className="container px-4 md:px-6 mx-auto">
+          <h2 className="text-center mb-8 text-3xl">Section 4: Contact Us</h2>
+          <p className="text-center">
+            Aenean vitae gravida odio. Ut sit amet arcu velit. Vivamus vel
+            fringilla eros, sed varius purus.
+          </p>
+        </div>
+      </section>
+
+      <section className="w-full py-12 bg-[#F5F5F5]">
+        <div className="container px-4 md:px-6 mx-auto">
+          <h2 className="text-center mb-8 text-3xl">Section 5: FAQ</h2>
+          <p className="text-center">
+            Proin molestie enim vitae turpis tincidunt ultricies. Sed ut quam et
+            ipsum tristique scelerisque non at neque.
+          </p>
+        </div>
+      </section>
+    </div>
   );
-}
+};
+
+export default TimelinesCarousel;

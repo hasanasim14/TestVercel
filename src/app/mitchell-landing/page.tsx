@@ -1,8 +1,10 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
+// import "@/app/globals.css"
+import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import { Button } from "../../components/ui/button";
+// import { Button } from "../../components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -22,7 +24,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import LitigationTimeline from "../../components/StateTimeline";
+import DualTimeline from "../../components/DualTimeline";
 
 interface MitchellLandingPageProps {
   isDialogOpen: boolean;
@@ -165,6 +167,7 @@ function MitchellLandingPage({
           </div>
         </section>
 
+        {/* Services */}
         <section
           id="services"
           className="w-full py-12 md:py-24 lg:py-32 bg-[#fff]"
@@ -206,21 +209,20 @@ function MitchellLandingPage({
           </div>
         </section>
 
-        {/* Timeline */}
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-[#292929] text-white">
-          <div className="container px-4 md:px-6">
-            <div className="text-center mb-10">
-              <h2 className="text-3xl font-bold text-center mb-2">
-                California Civil Litigation Timline
-              </h2>
-              <p className="text-xl text-purple">
-                (Getting to trial may take 1-2 years or longer)
-              </p>
-            </div>
-            <LitigationTimeline timelineiconcolor="#000000" textcolor="white" />
-          </div>
+        {/* Timelines */}
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-[#F5F5F5]">
+          <h2 className="text-3xl font-bold text-black mb-2 text-center">
+            Litigation Timelines
+          </h2>
+          <DualTimeline
+            federalIconColor="#000000"
+            federalTextColor="black"
+            stateIconColor="#000000"
+            stateTextColor="black"
+          />
         </section>
 
+        {/* Contact us */}
         <section
           id="contact"
           className="w-full py-12 md:py-24 lg:py-32 bg-[#fff]"
@@ -264,6 +266,8 @@ function MitchellLandingPage({
           </div>
         </section>
       </main>
+
+      {/* footer */}
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t border-[#292929] bg-[white]">
         <p className="text-xs text-[#000000]">
           © 2024 Mitchell Law Firm. All rights reserved.
