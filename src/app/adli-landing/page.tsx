@@ -129,7 +129,7 @@ function SuspenseContent({
   };
 
   return (
-    <div className="flex flex-col min-h-screen adli-landing-body">
+    <div className="flex flex-col min-h-screen adli-landing-body !bg-black">
       <header className="px-4 lg:px-6 h-16 flex items-center">
         <Link className="flex items-center justify-center" href="#">
           <Image
