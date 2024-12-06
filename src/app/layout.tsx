@@ -25,7 +25,7 @@ export default function RootLayout({
     <ClerkProvider dynamic>
       <html lang="en" className='dark'>
         <body
-          className={`${inter.className} dark` }
+          className={`${inter.className} dark ` }
           // style={{ backgroundColor: "#171717" }}
         >
           {/* <header className="flex justify-between items-center p-4"> */}
