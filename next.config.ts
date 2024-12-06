@@ -6,19 +6,19 @@ const nextConfig: NextConfig = {
     domains: ["assets.aceternity.com"],
   },
   transpilePackages: ['@calcom/embed-react'],
-  // async headers() {
-  //   return [
-  //     {
-  //       source: '/:path*',
-  //       headers: [
-  //         {
-  //           key: 'Access-Control-Allow-Origin',
-  //           value: '*',
-  //         },
-  //       ],
-  //     },
-  //   ];
-  // },
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: '*',
+          },
+        ],
+      },
+    ];
+  },
   async redirects() {
     return [];  
   },
