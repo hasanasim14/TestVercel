@@ -1,40 +1,40 @@
 "use client";
 
 import '../app/globals.css'
-// import { Button } from "@/components/ui/button";
-// import { Card, CardContent } from "@/components/ui/card";
-// import { FlipWords } from "@/components/ui/flip-words";
-// import { Briefcase, Users, BarChart, Shield } from "lucide-react";
-// import { ClerkProvider, useUser } from "@clerk/nextjs";
-// import Image from "next/image";
-// import Link from "next/link";
-// import { useEffect } from "react";
-// import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { FlipWords } from "@/components/ui/flip-words";
+import { Briefcase, Users, BarChart, Shield } from "lucide-react";
+import { ClerkProvider, useUser } from "@clerk/nextjs";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import '../styles/globals.css'
 export default function Home() {
-  // const words = ["Clients", "Partners", "Customers", "Referrals"];
-  // const { isSignedIn } = useUser();
-  // const router = useRouter();
+  const words = ["Clients", "Partners", "Customers", "Referrals"];
+  const { isSignedIn } = useUser();
+  const router = useRouter();
 
 
 //commenting
 
-  // useEffect(() => {
-  //   if (typeof window !== 'undefined') {
-  //     const hostname = window.location.hostname;
-  //     if (hostname === 'lawyer.addfutr.com') {
-  //       router.push('/adli-landing');
-  //       return;
-  //     }
-  //   }
-  // }, [router]);
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const hostname = window.location.hostname;
+      if (hostname === 'lawyer.addfutr.com') {
+        router.push('/adli-landing');
+        return;
+      }
+    }
+  }, [router]);
 
   return (
     <>
-    <div className='!bg-black'>
+    {/* <div className='!bg-black'>
       test
-    </div>
-      {/* <ClerkProvider>
+    </div> */}
+      <ClerkProvider>
         <div className="flex flex-col min-h-screen">
           <main className="flex-grow">
             <section className="relative h-[70vh] flex items-center justify-center">
@@ -141,7 +141,7 @@ export default function Home() {
             </div>
           </footer>
         </div>
-      </ClerkProvider> */}
+      </ClerkProvider>
     </>
   );
 }
