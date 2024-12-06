@@ -154,7 +154,7 @@ function SuspenseContent({
                   alt="Adli hero image"
                   className="mx-auto"
                 />
-                <p className="mx-auto text-[#9C8D7C] text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl max-w-[700px]">
+                <p className="tempclass mx-auto text-[#9C8D7C] text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl max-w-[700px]">
                   ADVOCATES. DEALMAKERS. LITIGATORS. INNOVATORS.
                 </p>
               </div>
