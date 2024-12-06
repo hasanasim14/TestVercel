@@ -4,15 +4,15 @@ const nextConfig: NextConfig = {
   images: {
     domains: ["assets.aceternity.com"], // Add any other domains for images if needed
   },
-  transpilePackages: ['@calcom/embed-react'],
+  transpilePackages: ["@calcom/embed-react"],
   async headers() {
     return [
       {
-        source: '/:path*',
+        source: "/:path*",
         headers: [
           {
-            key: 'Access-Control-Allow-Origin',
-            value: '*',
+            key: "Access-Control-Allow-Origin",
+            value: "*",
           },
         ],
       },
@@ -25,28 +25,18 @@ const nextConfig: NextConfig = {
     return {
       beforeFiles: [
         {
-          source: '/:path*',
+          source: "/:path*",
           has: [
             {
-              type: 'host',
-              value: 'lawyer.addfutr.com',
+              type: "host",
+              value: "lawyer.addfutr.com",
             },
           ],
-          destination: '/mitchell-landing/:path*',
-        },
-        {
-          source: '/:path*',
-          has: [
-            {
-              type: 'host',
-              value: 'book.adli.com', // This domain can be used for Adli Landing
-            },
-          ],
-          destination: '/adli-landing/:path*',
+          destination: "/mitchell-landing/:path*",
         },
       ],
       afterFiles: [], // Required by type definition
-      fallback: [],   // Required by type definition
+      fallback: [], // Required by type definition
     };
   },
 };
