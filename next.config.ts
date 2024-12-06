@@ -22,44 +22,44 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [];  
   },
-  // async rewrites() {
-  //   return {
-  //     beforeFiles: [
-  //       {
-  //         source: '/:path*',
-  //         has: [
-  //           {
-  //             type: 'host',
-  //             value: 'lawyer.addfutr.com',
-  //           },
-  //         ],
-  //         destination: '/adli-landing/:path*',
-  //       },
-  //       {
-  //         source: '/:path*',
-  //         has: [
-  //           {
-  //             type: 'host',
-  //             value: 'book.toranilaw.com',
-  //           },
-  //         ],
-  //         destination: '/torani-landing/:path*',
-  //       },
-  //       {
-  //         source: '/:path*',
-  //         has: [
-  //           {
-  //             type: 'host',
-  //             value: 'book.mitchlawfirm.com',
-  //           },
-  //         ],
-  //         destination: '/mitchell-landing/:path*',
-  //       },
-  //     ],
-  //     afterFiles: [], // Required by type definition
-  //     fallback: [],   // Required by type definition
-  //   };
-  // },
+  async rewrites() {
+    return {
+      beforeFiles: [
+        {
+          source: '/:path*',
+          has: [
+            {
+              type: 'host',
+              value: 'lawyer.addfutr.com',
+            },
+          ],
+          destination: '/adli-landing/:path*',
+        },
+        {
+          source: '/:path*',
+          has: [
+            {
+              type: 'host',
+              value: 'book.toranilaw.com',
+            },
+          ],
+          destination: '/torani-landing/:path*',
+        },
+        {
+          source: '/:path*',
+          has: [
+            {
+              type: 'host',
+              value: 'book.mitchlawfirm.com',
+            },
+          ],
+          destination: '/mitchell-landing/:path*',
+        },
+      ],
+      afterFiles: [], // Required by type definition
+      fallback: [],   // Required by type definition
+    };
+  },
 };
 
 export default nextConfig;
