@@ -25,14 +25,34 @@ const nextConfig: NextConfig = {
     return {
       beforeFiles: [
         {
-          source: "/:path*",
+          source: '/:path*',
           has: [
             {
-              type: "host",
-              value: "lawyer.addfutr.com",
+              type: 'host',
+              value: 'book.adli.com',
             },
           ],
-          destination: "/mitchell-landing/:path*",
+          destination: '/adli-landing/:path*',
+        },
+        {
+          source: '/:path*',
+          has: [
+            {
+              type: 'host',
+              value: 'book.toranilaw.com',
+            },
+          ],
+          destination: '/torani-landing/:path*',
+        },
+        {
+          source: '/:path*',
+          has: [
+            {
+              type: 'host',
+              value: 'lawyer.futr.agency',
+            },
+          ],
+          destination: '/mitchell-landing/:path*',
         },
       ],
       afterFiles: [], // Required by type definition
