@@ -131,6 +131,7 @@ function MitchellLandingPage({
                 <p className="mx-auto max-w-[700px] text-zinc-500 md:text-xl">
                   Expert Legal Solutions for Your Peace of Mind
                 </p>
+                <p className="!text-black">test</p>
               </div>
               <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                 <DialogTrigger asChild>
